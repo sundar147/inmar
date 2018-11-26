@@ -1,0 +1,19 @@
+1.Write the SQL to get number of  retailers avaliable in the systems.
+  SELECT count(email)FROM retailer;
+
+2.Write the SQL to get the shoppers count for each retailer(who purchased).
+  SELECT count(email)FROM fruit_purchase_table WHERE retailer_email='$_SESSION['email']';
+
+3.Write the SQL to get all the shoppers count.
+  SELECT count(email)FROM shopper;
+
+4.Write the SQL to get purchase amount per day w.r.t to a retailer
+  SELECT count(email)*100 FROM fruit_purchase_table WHERE 
+   retailer_email='$_SESSION['email']' AND DATE('timestamp')=CURDATE();
+
+5.Write the SQL to find the top retailer based on number of purchases
+  SELECT retailer_email FROM fruit_purchase_table WHERE max(SELECT
+   count(email)FROM fruit_purchase_table);
+
+6.Write the SQL to find a loyal shopper at any retailer based on the number of 
+  purchases more then threshold 
